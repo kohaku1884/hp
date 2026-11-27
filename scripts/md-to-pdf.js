@@ -11,7 +11,7 @@ const { chromium } = require('playwright');
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'mdpdf-'));
   const html = path.join(tmp, 'doc.html');
   execFileSync('pandoc', [input, '-f', 'gfm', '-t', 'html5', '--standalone',
-    '--metadata', 'pagetitle=要件定義書', '--css', css, '--embed-resources', '-o', html]);
+    '--metadata', 'pagetitle=Requirements Definition - Hikari SR Office', '--css', css, '--embed-resources', '-o', html]);
   const browser = await chromium.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
   await page.goto('file://' + html);
